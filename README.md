@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Movie Quotes
+
+>Demo app for user authentication in React with Redux
 
 ## Available Scripts
 
