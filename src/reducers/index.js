@@ -1,12 +1,12 @@
 import {combineReducers} from "redux";
-import {reducer as fromReducer} from "redux-form";
+import {reducer as formReducer} from "redux-form";
 import quotesReducer from "./quotes_reducer"
 import userReducer from "./user_reducer"
 
 const rootReducer = combineReducers({
-    form: fromReducer,
+    form: formReducer,
     quotes: quotesReducer,
-    uaer: userReducer
+    user: userReducer
 });
 
 export default rootReducer;

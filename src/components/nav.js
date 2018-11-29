@@ -1,12 +1,24 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
+import {userSignIn, userSignOut} from "../actions";
+import {connect} from "react-redux";
 
 class Nav extends Component{
+    renderLinks(){
+        const {auth, signIn, signOut} = this.props
+        if(auth){
+            return <button className="yellow btn" onClick={signOut}>Sign Out</button>
+        }
+        return <button className="blue btn" onClick={signIn}>Sign In</button>
+    }
     render(){
         const navStyle = {
             padding: "0 8px",
             
         }
+
+        console.log("USER AUTH: ", this.props.auth)
+
         return (
             
                 <nav style={navStyle} className="cyan lighten-2">
@@ -30,7 +42,8 @@ class Nav extends Component{
                         <Link to="/quotes">Quotes</Link>
                     </li>
                     <li>
-                        <Link to="/sign-in">Sign In</Link>
+                        {/* <Link to="/sign-in">Sign In</Link> */}
+                        {this.renderLinks()}
                     </li>
                     <li>
                         <Link to="/sign-up">Sign Up</Link>
@@ -42,4 +55,12 @@ class Nav extends Component{
     }
 }
 
-export default Nav;
+function mapStateToProps(state){
+
+    console.log(arguments);
+    return {
+        auth: state.user.auth
+    }
+}
+
+export default connect(mapStateToProps, {signIn:userSignIn, signOut:userSignOut})(Nav);
