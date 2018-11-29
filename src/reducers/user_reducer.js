@@ -5,7 +5,6 @@ const DEFAULT_STATE = {
 }
 
 export default (state = DEFAULT_STATE, action)=> {
-    console.log('User Reducer', action);
     switch(action.type) {
         case types.SIGN_UP:
         case types.SIGN_IN:
